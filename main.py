@@ -3,10 +3,13 @@ from flask import Flask, render_template, request, redirect, url_for, flash
 import openai
 
 app = Flask(__name__)
+
+print(os.environ)
+
 app.secret_key = os.environ.get("SECRET_KEY", "dev_key")
 
 # Configure OpenAI API
-openai.api_key = os.environ["OPENAI_API_KEY"]
+openai.api_key = os.environ['OPENAI_API_KEY']
 
 # Grade essay function
 def grade_essay(essay_text):
